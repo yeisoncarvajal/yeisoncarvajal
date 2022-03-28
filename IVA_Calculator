@@ -1,0 +1,7 @@
+let IVA = 0.19;
+
+function Calculadora_de_IVA(precio) {
+let ivaProducto = IVA * precio;
+console.log(`El IVA del producto es ${ivaProducto}`)
+console.log(`El precio final del producto es ${precio-ivaProducto}`)
+}
