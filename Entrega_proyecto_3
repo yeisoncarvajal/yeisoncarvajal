@@ -1,1 +1,55 @@
+const IVA = 0.19;
+const descuento1 =0.10;
+const descuento2 =0.05;
+const descuento3 = 0.03
+let productos = [];
+let subtotal = 0;
+let totalIva = 0;
+let total = 0;
 
+
+function calculadoraIVA(precio){
+  let ivaProducto = precio * IVA;
+  return ivaProducto;
+}
+
+function Nuevo_Producto(nombre, precio, descuentoTipo){
+  let precioDescuento;
+  let descuento;
+  let ivaProducto;
+
+  if(descuentoTipo){ 
+    switch(descuento){
+      case 1:
+        precioDescuento = precio - (precio * descuento1)
+        break;
+      case 2:
+        precioDescuento = precio - (precio * descuento2)
+          break;
+      default:
+        precioDescuento = precio - (precio * descuento3)
+        break
+    }
+  } 
+  if (precioDescuento) {
+    ivaProducto = calculadoraIVA(precioDescuento);
+    subtotal = subtotal + (precioDescuento - ivaProducto);
+    total = total + precioDescuento;
+  } else {
+    ivaProducto = calculadoraIVA(precio)
+    subtotal = subtotal + (precio - ivaProducto);
+    total = total + precio;
+  }
+
+  const producto = {
+    Nombre: nombre,
+    precio,
+    PrecioNeto: precioDescuento ? precioDescuento : undefined,
+    Iva: ivaProducto 
+  };
+  productos.push(producto);
+};
+
+for (let i = 0; i < productos; i++) {
+  sumaTotal = producto[i]
+} 
